@@ -29,7 +29,14 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-  /// your code here
+  if ((typeof (name) === 'string' || name instanceof String) && name !== "") {
+        name = name.split(" ").join("");
+        if (name.length > 1) {
+            return true;
+        }
+        return false;
+    }
+    else return false;
 }
 
 
