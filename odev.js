@@ -14,7 +14,8 @@ var car = {
 }
 
 var myCarDetails =  car.displayDetails;
-myCarDetails();
+myCarDetails.call(car);
+
 
 
 /** 
@@ -28,7 +29,10 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-  /// your code here
+    if ((typeof (name) !== 'string') || !name) return false;
+    name = name.replace(/  +/g, ' ').trim().split(" ");
+    return (name.every(item => item.length >= 2));
+
 }
 
 
@@ -50,7 +54,6 @@ function summary(genre, year) {
     `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
   )
 }
-
-
+summary.call(book, "dystopian", 1932);
 
 
